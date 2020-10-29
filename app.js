@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const config = require('./config');
 
-
+// TODO slet 
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use('/rooms', require('./routes/rooms.js'));
