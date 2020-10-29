@@ -1,0 +1,47 @@
+body {
+  background-color: lightgoldenrodyellow;
+}
+#chat {
+  display: grid;
+  grid:
+    "messages messages"
+    "chatrooms message";
+  grid-template-rows: 10fr 1fr;
+  grid-template-columns: 2fr 10fr;
+
+  width: 75%;
+  height: 500px;
+  margin: auto;
+  background-color: cadetblue;
+}
+
+#messages {
+  grid-area: messages;
+  color: lightgoldenrodyellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow: auto;
+}
+
+#message {
+  grid-area: message;
+}
+
+#chatrooms {
+  grid-area: chatrooms;
+}
+
+.chatmessage {
+  display: grid;
+  grid-template-columns: 1fr 5px 9fr 1fr;
+  margin-bottom: -15px;
+}
+
+.chatmessage .message-text {
+  padding-left: 15px;
+}
+
+.chatmessage .delete {
+  color: red;
+}

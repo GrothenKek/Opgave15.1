@@ -1,0 +1,17 @@
+
+
+<ul>
+    {{#each rooms}}
+    <li>
+        {{name}}
+        <ul>
+            {{#each message}}
+            <li>
+                {{name}}({{text}})
+            </li>
+            {{/each}}
+        </ul>
+
+    </li>
+    {{/each}}
+</ul>
