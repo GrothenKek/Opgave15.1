@@ -8,9 +8,8 @@
   "name": "opgave15.1",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GrothenKek/Opgave15.1.git"
