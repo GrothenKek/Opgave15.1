@@ -8,6 +8,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use('/rooms', require('./routes/rooms.js'));
 app.use('/messages', require('./routes/message.js'));
+app.use('/Jokes', require('./routes/jokes.js'));
+app.use('/OtherSites', require('./routes/OtherSites.js'));
 
 const port = process.env.PORT || config.localport // Heroku
 app.listen(port);

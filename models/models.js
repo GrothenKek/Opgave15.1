@@ -17,5 +17,6 @@ const jokeSchema = new mongoose.Schema({
 
 });
 
+exports.Joke = mongoose.model("joke", jokeSchema);
 exports.Room = mongoose.model("Room", roomSchema);
 exports.Message = mongoose.model("Message", msgSchema);
