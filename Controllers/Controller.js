@@ -4,8 +4,9 @@ const config = require('../config.js');
 const model = require('../models/models.js');
 const { Room,Message } = model;
 
+const URI = `mongodb+srv://Grothen:p4ndek4gek0ngen@jokeservice.0lfnc.mongodb.net/chatserver?retryWrites=true&w=majority`
 
-mongoose.connect(config.databaseURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 exports.getRooms = async function(){
