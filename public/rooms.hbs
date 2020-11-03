@@ -1,13 +1,12 @@
 
 
 <ul>
-    {{#each rooms}}
+    {{#each jokes}}
     <li>
-        {{name}}
+        {{setup}}
         <ul>
-            {{#each message}}
             <li>
-                {{name}}({{text}})
+                {{punchline}}
             </li>
             {{/each}}
         </ul>
