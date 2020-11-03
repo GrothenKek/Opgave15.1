@@ -1,10 +1,10 @@
 const  mongoose  = require("mongoose");
-const chat = require('../models/models.js');
+const jokes = require('../models/models.js');
 const config = require('../config.js');
 const model = require('../models/models.js');
-const { Room,Message } = model;
+const { setup,punchline } = model;
 
-const URI = `mongodb+srv://Grothen:p4ndek4gek0ngen@jokeservice.0lfnc.mongodb.net/chatserver?retryWrites=true&w=majority`
+const URI = `mongodb+srv://Grothen:p4ndek4gek0ngen@jokeservice.0lfnc.mongodb.net/jokesdb?retryWrites=true&w=majority`
 
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -12,7 +12,7 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // get Jokes
 exports.getJokes = async function () {
-    return await chat.Joke.find();
+    return await jokes.Joke.find();
 }
 
 //post joke

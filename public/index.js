@@ -1,11 +1,20 @@
-const chatroomsDropdown = document.getElementById("chatrooms");
+
 const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
-const username = () => document.getElementById("username").value;
-const currentRoom = () =>
-    chatroomsDropdown.selectedOptions[0].id.split("room-")[1];
-const updateRoom = () => changeRoom(currentRoom());
-const createRoomBtn = document.getElementById("createroom");
+const jokediv = document.getElementById("joke")
+
+const createjokeBTN = document.getElementById("createJoke");
+
+
+let flet = document.querySelector('td');
+let index = 0;
+let liste = [];
+//flet.innerHTML = jokes[0];
+
+
+
+
+
 
 ////////////////////////// APP/Data
 
@@ -35,6 +44,7 @@ const sendJoke = async (Setup, Punchline) => {
  */
 const updateJokes = async () =>{
 const jokes = await getJokes();
+return jokes
 
 }
 
@@ -42,26 +52,39 @@ const jokes = await getJokes();
 
 
 const initGui = async () => {
-    // Initialize data
-    await updateRooms();
-    await updateRoom();
+     liste = await getJokes();
+    // Initialize data'
+    await updateJokes();
+    const jokes = await getJokes();
+    flet.innerHTML = liste[index].setup + " " + liste[index].punchLine;
+    console.log(jokes);
+   
+
+    
 
     // Initialize handlers
-    chatroomsDropdown.onclick = () => updateRooms();
-    chatroomsDropdown.onchange = (event) => updateRoom();
-    messageInput.addEventListener("keydown", (event) => {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            sendMessage(document.getElementById("message").value);
-        }
-    });
-    messagesDiv.onclick = (event) => messageClicked(event.target);
-    createRoomBtn.onclick = () => createRoom();
-
-    // Auto refresh
-    setInterval(() => {
-        updateRoom();
-    }, 2000);
+    
 };
+
+
+    
+
+
+    function skiftJoke() {
+        index = (index+1)%liste.length;
+        console.log(index);
+            flet.innerHTML = liste[index].setup + " " + liste[index].punchLine;
+
+
+        }
+
+  
+    
+
+
+
+
+
+
 
 initGui();
