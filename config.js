@@ -1,6 +1,6 @@
 // config.js
 const config = {
-    databaseURI: 'mongodb' +'srv://Grothen:p4ndek4gek0ngen@jokeservice.0lfnc.mongodb.net/JokeService?retryWrites=true&w=majority', //'mongodb://localhost' + '/chatserver', // or MongoDB Atlas connection URI
+    databaseURI: 'mongodb + srv://Grothen:p4ndek4gek0ngen@jokeservice.0lfnc.mongodb.net/JokeService?retryWrites=true&w=majority', //'mongodb://localhost' + '/chatserver', // or MongoDB Atlas connection URI
     localport : 8080
 };
 
