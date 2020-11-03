@@ -1,47 +1,40 @@
-body {
-  background-color: lightgoldenrodyellow;
-}
-#chat {
-  display: grid;
-  grid:
-    "messages messages"
-    "chatrooms message";
-  grid-template-rows: 10fr 1fr;
-  grid-template-columns: 2fr 10fr;
 
-  width: 75%;
-  height: 500px;
-  margin: auto;
-  background-color: cadetblue;
+body{
+    background-image: linear-gradient(#5c92f7 50%, #54d322);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+}   
+.boxsen{
+    display: flex;
+    
 }
 
-#messages {
-  grid-area: messages;
-  color: lightgoldenrodyellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  overflow: auto;
+table{
+
+
+    display: grid;
+    grid-template-columns: repeat(4, 5%);
+    grid-template-rows: repeat(1, 20px);
+    border-spacing : 0px;
+  
+}
+H1{
+    color:#54d322;
 }
 
-#message {
-  grid-area: message;
+td{     
+
+    border: 5px solid black ;
+    border-bottom: 5px solid black;
+    background-image: linear-gradient(#d35cf7 50%, #54d322);
+    transition: 420ms;
+    font-size: 200%;
+   
+     
+}
+button{
+    background-image: linear-gradient(#d35cf7 50%, #54d322);
 }
 
-#chatrooms {
-  grid-area: chatrooms;
-}
 
-.chatmessage {
-  display: grid;
-  grid-template-columns: 1fr 5px 9fr 1fr;
-  margin-bottom: -15px;
-}
-
-.chatmessage .message-text {
-  padding-left: 15px;
-}
-
-.chatmessage .delete {
-  color: red;
-}
