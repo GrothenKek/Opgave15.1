@@ -11,5 +11,11 @@ const msgSchema = new mongoose.Schema({
     text: String,
 });
 
+const jokeSchema = new mongoose.Schema({
+    Setup: String,
+    punchLine: String,
+
+});
+
 exports.Room = mongoose.model("Room", roomSchema);
 exports.Message = mongoose.model("Message", msgSchema);
