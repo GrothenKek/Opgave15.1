@@ -5,7 +5,7 @@ const model = require('../models/models.js');
 const { Room,Message } = model;
 
 
-mongoose.connect(config.databaseURI, { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(config.databaseURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 exports.getRooms = async function(){
