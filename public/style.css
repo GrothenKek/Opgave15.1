@@ -6,21 +6,21 @@ body{
     background-attachment: fixed;
 }   
 .boxsen{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 5;
+    
     
 }
 
-table{
-
-
+#inputs{
     display: grid;
-    grid-template-columns: repeat(4, 5%);
-    grid-template-rows: repeat(1, 20px);
-    border-spacing : 0px;
-  
+    grid-template-columns: 2;
+    grid-template-rows: 3;
 }
 H1{
     color:#54d322;
+    text-shadow: black;
 }
 
 td{     
@@ -34,6 +34,7 @@ td{
      
 }
 button{
+    display: grid;
     background-image: linear-gradient(#d35cf7 50%, #54d322);
 }
 

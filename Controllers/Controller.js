@@ -10,21 +10,29 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //exports
 
+
 // get Jokes
 exports.getJokes = async function () {
-    return await jokes.Joke.find();
+    return await    jokes.Joke.find();
 }
 
 //post joke
 exports.postJoke = async function (body) {
-    const { setup, punchline } = body;
-
-
-    return await joke.create({
+    const {setup,punchline } = body;
+    
+    let res =  await jokes.Joke.create({
         setup: setup,
         punchline: punchline,
     });
+    return res;
 }
+
+
+
+
+
+
+
 
 
 

@@ -6,8 +6,8 @@ const config = require('./config');
 // TODO slet 
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
-app.use('/Jokes', require('./routes/jokes.js'));
-app.use('/Othersites', require('./routes/OtherSites.js'));
+app.use('/jokes', require('./routes/jokes.js'));
+app.use('/othersites', require('./routes/othersites.js'));
 
 const port = process.env.PORT || config.localport // Heroku
 app.listen(port);

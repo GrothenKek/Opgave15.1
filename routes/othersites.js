@@ -8,9 +8,11 @@ router
         res.send(await controller.postJoke(req.body));
     })
 //get
-    .get("/", async (req, res) => {
-        res.send(await controller.getForeignJokes());
+    .get("/api/othersites", async (req, res) => {
+        res.send(await controller.getotersites());
     });
+
+
 
 function sendStatus(e, response) {
     console.error("Exception " + e);
