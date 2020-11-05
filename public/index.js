@@ -2,7 +2,6 @@
 const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
 const jokediv = document.getElementById("joke")
-
 const createjokeBTN = document.getElementById("createJoke");
 
 
@@ -24,7 +23,7 @@ const getJokes = async () => {
     return await jokes.json();
 };
 
-const sendJoke = async (Setup, Punchline) => {
+const postJoke = async (Setup, Punchline) => {
     let newJoke = await fetch("/jokes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -57,16 +56,12 @@ const initGui = async () => {
     await updateJokes();
     const jokes = await getJokes();
     flet.innerHTML = liste[index].setup + " " + liste[index].punchLine;
-    console.log(jokes);
-   
 
     
 
     // Initialize handlers
     
 };
-
-
     
 
 
