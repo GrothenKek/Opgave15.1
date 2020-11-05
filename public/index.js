@@ -79,7 +79,6 @@ const initGui = async () => {
 };
     function skiftJoke() {
         index = (index+1)%liste.length;
-        console.log(index);
             flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
 
 
