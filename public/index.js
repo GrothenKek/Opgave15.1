@@ -68,8 +68,8 @@ const getotherjokes = async function(url){
 const initGui = async () => {
     other = await getothersites("https://krdo-joke-registry.herokuapp.com/api/services");
     liste = await getJokes();
-    getotherjokes("https://jokerullemaria.herokuapp.com/api/jokes");
-    console.log(other);
+  //  getotherjokes("https://jokerullemaria.herokuapp.com/api/jokes");
+   // console.log(other);
     
     // Initialize data'
     const jokes = await getJokes();
