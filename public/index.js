@@ -1,4 +1,4 @@
-//const { get } = require("mongoose");
+
 
 const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
