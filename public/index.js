@@ -19,14 +19,14 @@ let otherjokes = [];
 
 
 const getJokes = async () => {
-    const jokes = await fetch("/jokes");
+    const jokes = await fetch("/api/jokes");
     return await jokes.json();
 };
 
 const postJoke = async () => {
     let setup = document.getElementById("setup").value;
     let punchline = document.getElementById("punchline").value;
-    let newJoke = await fetch("/jokes", {
+    let newJoke = await fetch("/api/jokes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -51,8 +51,17 @@ const getotherjokes = async function(url){
 
 
 
+function generateTable(other) {
+    let html = '<table>';
+    for (other of other) {
+       
+            html += '<tr><td>' + other.name + '</td></tr>\n';
+        }
+    
+    html += '</table><br><div></div>';
+    return html;
 
-
+}
 
 
 ////////////////////////// GUI
@@ -69,7 +78,7 @@ const initGui = async () => {
     other = await getothersites("https://krdo-joke-registry.herokuapp.com/api/services");
     liste = await getJokes();
   //  getotherjokes("https://jokerullemaria.herokuapp.com/api/jokes");
-   // console.log(other);
+    console.log(generateTable(other));
     
     // Initialize data'
     const jokes = await getJokes();
