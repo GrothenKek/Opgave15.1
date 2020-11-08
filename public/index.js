@@ -19,7 +19,16 @@ let otherjokes = [];
 
 ////////////////////////// APP/Data
 
-
+async function post(url, objekt) {
+    const respons = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(objekt),
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if (respons.status !== 201)
+        throw new Error(respons.status);
+    return await respons.json();
+};
 
 
 const getJokes = async () => {
@@ -92,9 +101,33 @@ const initGui = async () => {
     dropdown.innerHTML = await generateTable2();
     
     
-    flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
     
-};
+    flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
+    console.log(other);
+    
+
+    let obj = {
+          "name": "pandekagekongerne",
+       "address": "https://pandekagekongerne.herokuapp.com/",
+         "secret": "pandekage"
+      }
+   
+
+    if (other.find(other => other.name !=="pandekagekongerne")){
+        console.log("findes");
+         //post('https://krdo-joke-registry.herokuapp.com/api/services',obj);
+    }
+    else{
+        console.log("findes ikke");
+
+    }
+  
+    
+    
+   
+
+    
+}
     function skiftJoke() {
         index = (index+1)%liste.length;
             flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
@@ -109,6 +142,9 @@ async function getotherjokes(id) {
     }
     
 }
+
+
+
 
 
 initGui();
