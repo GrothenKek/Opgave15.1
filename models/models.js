@@ -8,6 +8,4 @@ const jokeSchema = new mongoose.Schema({
 
 });
 
-
-
 exports.Joke = mongoose.model("joke", jokeSchema);

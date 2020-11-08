@@ -1,4 +1,5 @@
 
+
 const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
 const jokediv = document.getElementById("joke")
@@ -19,8 +20,6 @@ let otherjokes = [];
 ////////////////////////// APP/Data
 
 
-
-    
 
 
 const getJokes = async () => {
@@ -49,7 +48,6 @@ async function getText(url) {
         throw new Error(respons.status);
     return await respons.text();
 }
-
 
 
 
@@ -89,24 +87,14 @@ async function generateTable2(){
 
 
 const initGui = async () => {
-
-
-   
+    
     liste = await getJokes();
     dropdown.innerHTML = await generateTable2();
     
     
     flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
-
-
-    let response = await fetch('/api/othersites');
-    other = await response.json();
-
- 
+    
 };
-
-
-
     function skiftJoke() {
         index = (index+1)%liste.length;
             flet.innerHTML = liste[index].setup + " " + liste[index].punchline;

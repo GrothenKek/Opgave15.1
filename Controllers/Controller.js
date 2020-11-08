@@ -28,7 +28,6 @@ exports.postJoke = async function (body) {
     return res;
 }
 
-
 exports.getallsites = async function(){
     let url = "https://krdo-joke-registry.herokuapp.com/api/services";
     const response = await fetch(url);
@@ -39,14 +38,6 @@ exports.getallsites = async function(){
    
     return json;
 }
-
-
-
-    
-
-       
-    
-
 
 
 
