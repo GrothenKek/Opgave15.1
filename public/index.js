@@ -4,6 +4,10 @@ const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
 const jokediv = document.getElementById("joke")
 const createjokeBTN = document.getElementById("createJoke");
+const dropdown = document.querySelector('#dropdownmenu');
+dropdown.addEventListener('click', (event)=>{
+    getotherjokes(event.target.id) 
+});
 
 
 let flet = document.querySelector('td');
@@ -36,32 +40,39 @@ const postJoke = async () => {
     });
 }
 
-const getothersites = async function (url) {
-    const res = await fetch(url);
-    if (res.status !== 200) {
-        throw new Error(res.status);
-    }
-    return await res.json();
-}
 
-const getotherjokes = async function(url){
-    otherjokes = await getothersites(url);
-    console.log(res.json);
+
+async function getText(url) {
+    const respons = await fetch(url);
+    if (respons.status !== 200) // OK
+        throw new Error(respons.status);
+    return await respons.text();
 }
 
 
 
-function generateTable(other) {
-    let html = '<table>';
-    for (other of other) {
-       
-            html += '<tr><td>' + other.name + '</td></tr>\n';
+async function generateTable2(){
+   
+    try {
+        
+   let response = await fetch('/api/othersites');
+     other = await response.json();
+     
+    let template = await getText('/service.hbs');
+        if (response.status !== 200) {
+            throw new Error(response.status);
         }
-    
-    html += '</table><br><div></div>';
-    return html;
+    let compiledTemplate = Handlebars.compile(template);
+    return compiledTemplate({ other });
 
+    }
+    catch(e){
+        console.log(e.name + ": "+e.message);
+
+    }
 }
+
+
 
 
 ////////////////////////// GUI
@@ -74,16 +85,14 @@ function generateTable(other) {
 
 
 
+
 const initGui = async () => {
-    other = await getothersites("https://krdo-joke-registry.herokuapp.com/api/services");
-    liste = await getJokes();
-  //  getotherjokes("https://jokerullemaria.herokuapp.com/api/jokes");
-    console.log(generateTable(other));
     
-    // Initialize data'
-    const jokes = await getJokes();
+    liste = await getJokes();
+    dropdown.innerHTML = await generateTable2();
+    
+    
     flet.innerHTML = liste[index].setup + " " + liste[index].punchline;
-    // Initialize handlers
     
 };
     function skiftJoke() {
@@ -93,6 +102,13 @@ const initGui = async () => {
 
         }
 
+async function getotherjokes(id) {
+    liste = await (await fetch('api/othersites/'+id)).json();
+    if(liste.length===0){
+        throw new error("empty array");
+    }
+    
+}
 
 
 initGui();
