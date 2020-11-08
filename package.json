@@ -5,7 +5,8 @@
     "node-fetch": "^2.6.1",
     "should": "^13.2.3",
     "supertest": "^5.0.0",
-    "cors":"2.8.5"
+    "cors":"2.8.5",
+    "hbs": "4.1.1"
   },
   "name": "opgave15.1",
   "version": "1.0.0",
