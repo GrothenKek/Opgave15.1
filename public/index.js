@@ -113,11 +113,12 @@ const initGui = async () => {
       }
    
 
-    if (other.find(other => other.name !=="pandekagekongerne")){
+    if (other.find(other => other.name ==="pandekagekongerne")){
         console.log("findes");
-         //post('https://krdo-joke-registry.herokuapp.com/api/services',obj);
+       
     }
     else{
+        post('https://krdo-joke-registry.herokuapp.com/api/services', obj);
         console.log("findes ikke");
 
     }
