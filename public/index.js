@@ -1,3 +1,4 @@
+const { model } = require("mongoose");
 
 
 const messagesDiv = document.getElementById("messages");
@@ -131,7 +132,7 @@ const initGui = async () => {
         name: "pandekagekongerne",
         address: "https://pandekagekongerne.herokuapp.com/",
         secrete: "mySecrete",
-    };
+    }.stringify();
     if(other.find("Pandekagekongerne")){
 
     }
