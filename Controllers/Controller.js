@@ -1,5 +1,6 @@
 const  mongoose  = require("mongoose");
 const jokes = require('../models/models.js');
+
 const config = require('../config.js');
 const model = require('../models/models.js');
 const { setup,punchline } = model;
@@ -27,6 +28,16 @@ exports.postJoke = async function (body) {
     });
     return res;
 }
+exports.postservice = async function (body) {
+    const {name,address,secret} = body;
+    let res  = await jokes.service.create({
+        name : name,
+        address : address,
+        secret : secret,
+
+    });
+    return res;
+}
 
 exports.getallsites = async function(){
     let url = "https://krdo-joke-registry.herokuapp.com/api/services";
@@ -38,6 +49,41 @@ exports.getallsites = async function(){
    
     return json;
 }
+
+exports.postservice = async function() {
+
+    const all = getallsites();
+    console.log(all);
+
+    if (all.find("PandeKageKongerne")) {
+
+
+    }
+    else {
+        let name = "PandeKageKongerne";
+        let address = "https://pandekagekongerne.herokuapp.com/";
+        let secret = "mySecret";
+        let newService = await fetch('/api/services', {
+
+
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: name,
+                address: address,
+                secret: secret
+            }),
+        });
+
+    }
+}
+
+
+    
+
+       
+    
+
 
 
 
