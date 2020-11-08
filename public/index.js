@@ -128,20 +128,20 @@ const initGui = async () => {
     let response = await fetch('/api/othersites');
     other = await response.json();
 
-    objekt = {
-        name: "pandekagekongerne",
-        address: "https://pandekagekongerne.herokuapp.com/",
-        secrete: "mySecrete",
-    }.stringify();
-    if(other.find("Pandekagekongerne")){
+ //   objekt = {
+   //     name: "pandekagekongerne",
+     //   address: "https://pandekagekongerne.herokuapp.com/",
+   //     secrete: "mySecrete",
+ //   }.stringify();
+ //   if(other.find("Pandekagekongerne")){
 
-    }
-    else{
+ //   }
+  //  else{
        
 
-        post("https://krdo-joke-registry.herokuapp.com/api/services",objekt)
-
-    };
+    //    post("https://krdo-joke-registry.herokuapp.com/api/services",objekt)
+//
+  //  };
 };
 
 
