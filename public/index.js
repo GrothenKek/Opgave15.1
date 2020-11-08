@@ -1,5 +1,3 @@
-const { model } = require("mongoose");
-
 
 const messagesDiv = document.getElementById("messages");
 const messageInput = document.getElementById("message");
@@ -23,30 +21,6 @@ let otherjokes = [];
 
 
     
-
-
-// POST 
-async function post(url, objekt) {
-    const respons = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify(objekt),
-        headers: { 'Content-Type': 'application/json' }
-    });
-    if (respons.status !== 201)
-        throw new Error(respons.status);
-    return await respons.json();
-};
-
-// DELETE
-async function deLete(url) {
-    const respons = await fetch(url, {
-        method: "DELETE"
-    });
-    if (respons.status !== 200) // OK
-        throw new Error(respons.status);
-    return await respons.json();
-}
-
 
 
 const getJokes = async () => {
@@ -128,20 +102,7 @@ const initGui = async () => {
     let response = await fetch('/api/othersites');
     other = await response.json();
 
- //   objekt = {
-   //     name: "pandekagekongerne",
-     //   address: "https://pandekagekongerne.herokuapp.com/",
-   //     secrete: "mySecrete",
- //   }.stringify();
- //   if(other.find("Pandekagekongerne")){
-
- //   }
-  //  else{
-       
-
-    //    post("https://krdo-joke-registry.herokuapp.com/api/services",objekt)
-//
-  //  };
+ 
 };
 
 
